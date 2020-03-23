@@ -4,7 +4,11 @@
 package com.itstabber.blog.example.web;
 
 import com.itstabber.blog.example.request.BaseRequest;
+import com.itstabber.blog.example.request.OrderRequest;
 import com.itstabber.blog.example.response.BaseResponse;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -18,18 +22,29 @@ import javax.validation.Valid;
  */
 @RequestMapping("/hello")
 @RestController
+@Api(tags = "HelloWorld 入口")
 public class HelloWorld {
 
     @GetMapping("/world")
-    public String helloWorld(){
+    @ApiOperation(value = "helloWorld")
+    public String helloWorld() {
         return "hello world!";
     }
 
 
     @PostMapping("/test/param")
+    @ApiOperation(value = "testParam")
     public BaseResponse<String> testParam(
-           @Valid @RequestBody BaseRequest baseRequest
-            ){
+            @Valid @RequestBody BaseRequest baseRequest
+    ) {
+        return BaseResponse.successResponse("参数校验成功");
+    }
+
+    @ApiOperation(value = "testOrderParam")
+    @PostMapping("/test/order")
+    public BaseResponse<String> testOrderParam(
+            @Validated @RequestBody OrderRequest baseRequest
+    ) {
         return BaseResponse.successResponse("参数校验成功");
     }
 }

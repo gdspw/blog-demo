@@ -3,6 +3,7 @@
  */
 package com.itstabber.blog.example.request;
 
+import io.swagger.annotations.ApiModel;
 import lombok.Data;
 
 import javax.validation.constraints.Max;
@@ -30,4 +31,6 @@ public class BaseRequest {
 
     @Max(value=100,message = "最大值不能大约100")
     private int max;
+
+
 }
