@@ -23,16 +23,22 @@ import java.util.Properties;
  */
 @Slf4j
 @Intercepts({
-        @Signature(type = Executor.class, method = "query", args = {MappedStatement.class, Object.class, RowBounds.class, ResultHandler.class}),
-        @Signature(type = Executor.class, method = "query", args = {MappedStatement.class, Object.class, RowBounds.class, ResultHandler.class, CacheKey.class, BoundSql.class})
-
+        @Signature(type = Executor.class, method = "query", args = {MappedStatement.class, Object.class, RowBounds.class, ResultHandler.class})
 })
 public class Interceptor2 implements Interceptor {
 
     @Override
     public Object intercept(Invocation invocation) throws Throwable {
-        log.info("Interceptor2执行intercept>>>>");
-        return invocation.proceed();
+            Object[] args = invocation.getArgs();
+            MappedStatement ms = (MappedStatement) args[0];
+            Object parameter = args[1];
+            RowBounds rowBounds = (RowBounds) args[2];
+            Executor executor = (Executor) invocation.getTarget();
+            BoundSql boundSql;
+             boundSql = ms.getBoundSql(parameter);
+            executor.createCacheKey(ms, parameter, rowBounds, boundSql);
+            log.info("Interceptor2执行intercept>>>>");
+            return invocation.proceed();
     }
 
     @Override

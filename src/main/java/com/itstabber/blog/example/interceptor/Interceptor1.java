@@ -5,6 +5,7 @@ package com.itstabber.blog.example.interceptor;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.executor.Executor;
+import org.apache.ibatis.mapping.BoundSql;
 import org.apache.ibatis.mapping.MappedStatement;
 import org.apache.ibatis.plugin.*;
 import org.apache.ibatis.session.ResultHandler;
@@ -27,6 +28,14 @@ public class Interceptor1 implements Interceptor {
 
     @Override
     public Object intercept(Invocation invocation) throws Throwable {
+        Object[] args = invocation.getArgs();
+        MappedStatement ms = (MappedStatement) args[0];
+        Object parameter = args[1];
+        RowBounds rowBounds = (RowBounds) args[2];
+        Executor executor = (Executor) invocation.getTarget();
+        BoundSql boundSql;
+        boundSql = ms.getBoundSql(parameter);
+        executor.createCacheKey(ms, parameter, rowBounds, boundSql);
         log.info("Interceptor1执行intercept>>>>");
         return invocation.proceed();
     }
