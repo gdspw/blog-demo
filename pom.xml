@@ -9,7 +9,11 @@
 
     <groupId>com.itstabber.blog</groupId>
     <artifactId>blog-demo</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>mybatis-interceptor</module>
+    </modules>
 
     <!-- Inherit defaults from Spring Boot -->
     <parent>
