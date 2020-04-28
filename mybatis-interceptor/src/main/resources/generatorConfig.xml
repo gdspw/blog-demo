@@ -16,7 +16,7 @@
 
         <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
             <!--这里修改成统一的Mapper父接口-->
-            <property name="mappers" value="com.itstabber.blog.example.dao.MyMapper"/>
+            <property name="mappers" value="com.itstabber.blog.interceptor.example.dao.MyMapper"/>
         </plugin>
         <plugin type="com.github.dcendents.mybatis.generator.plugin.annotation.AddClassAnnotationsPlugin">
             <property name="annotationClass" value="lombok.Data"/>
@@ -43,13 +43,13 @@
         </jdbcConnection>
 
         <!--这里填写生成的表实体类目录-->
-        <javaModelGenerator targetPackage="com.itstabber.blog.example.model" targetProject="src/main/java"/>
+        <javaModelGenerator targetPackage="com.itstabber.blog.interceptor.example.model" targetProject="src/main/java"/>
 
         <!--这里填写生成的表xml目录-->
         <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources"/>
 
         <!--这里填写生成的表mapper目录-->
-        <javaClientGenerator targetPackage="com.itstabber.blog.example.repository" targetProject="src/main/java"
+        <javaClientGenerator targetPackage="com.itstabber.blog.interceptor.example.repository" targetProject="src/main/java"
                              type="XMLMAPPER"/>
 
         <!--这里的%通配符表示库里面的所有表-->

@@ -101,7 +101,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.itstabber.blog.example.ApplicationStart</mainClass>
+                    <mainClass>ApplicationStart</mainClass>
                 </configuration>
                 <executions>
                     <execution>
