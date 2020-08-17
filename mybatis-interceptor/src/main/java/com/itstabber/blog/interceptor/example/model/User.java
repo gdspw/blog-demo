@@ -4,6 +4,7 @@
 package com.itstabber.blog.interceptor.example.model;
 
 import java.util.Date;
+import java.util.List;
 import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -49,6 +50,8 @@ public class User {
      */
     @Column(name = "update_time")
     private Date updateTime;
+
+    private List<Role> roleList;
 
     /**
      * @return id

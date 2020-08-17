@@ -13,6 +13,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>mybatis-interceptor</module>
+        <module>spring-mvc</module>
     </modules>
 
     <!-- Inherit defaults from Spring Boot -->

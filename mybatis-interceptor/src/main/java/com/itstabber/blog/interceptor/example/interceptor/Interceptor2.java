@@ -22,9 +22,12 @@ import java.util.Properties;
  * @since 1.0.0
  */
 @Slf4j
-@Intercepts({
-        @Signature(type = Executor.class, method = "query", args = {MappedStatement.class, Object.class, RowBounds.class, ResultHandler.class})
-})
+@Intercepts(
+        {
+                @Signature(type = Executor.class, method = "query", args = {MappedStatement.class, Object.class, RowBounds.class, ResultHandler.class}),
+                @Signature(type = Executor.class, method = "query", args = {MappedStatement.class, Object.class, RowBounds.class, ResultHandler.class, CacheKey.class, BoundSql.class}),
+        }
+)
 public class Interceptor2 implements Interceptor {
 
     @Override

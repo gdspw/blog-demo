@@ -36,7 +36,7 @@
         </plugin>
         <!--这里填写自己的数据库链接-->
         <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
-                        connectionURL="jdbc:mysql://47.93.20.244:3306/blog_demo_db?useUnicode=true&amp;characterEncoding=utf8&amp;zeroDateTimeBehavior=convertToNull&amp;allowMultiQueries=true&amp;useSSL=false&amp;serverTimezone=GMT%2B8"
+                        connectionURL="jdbc:mysql://115.159.157.145:3306/blog_demo_db?useUnicode=true&amp;characterEncoding=utf8&amp;zeroDateTimeBehavior=convertToNull&amp;allowMultiQueries=true&amp;useSSL=false&amp;serverTimezone=GMT%2B8"
                         userId="blog_user"
                         password="Itstabber123!">
             <property name="nullCatalogMeansCurrent" value="true"/>
@@ -53,7 +53,11 @@
                              type="XMLMAPPER"/>
 
         <!--这里的%通配符表示库里面的所有表-->
-        <table tableName="t_user" schema="blog_demo_db">
+        <table tableName="t_role" schema="blog_demo_db">
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+            <domainObjectRenamingRule searchString="^T" replaceString=""/>
+        </table>
+        <table tableName="t_user_role" schema="blog_demo_db">
             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
             <domainObjectRenamingRule searchString="^T" replaceString=""/>
         </table>

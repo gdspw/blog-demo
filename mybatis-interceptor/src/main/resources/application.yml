@@ -3,7 +3,7 @@ spring:
     name: blog-demo
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:mysql://47.93.20.244:3306/blog_demo_db?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&rewriteBatchedStatements=false&useTimezone=true&serverTimezone=GMT%2B8
+    url: jdbc:mysql://115.159.157.145:3306/blog_demo_db?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&rewriteBatchedStatements=false&useTimezone=true&serverTimezone=GMT%2B8
     username: blog_user
     password: Itstabber123!
     driver-class-name: com.mysql.cj.jdbc.Driver
