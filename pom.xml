@@ -24,7 +24,7 @@
     </parent>
 
     <properties>
-        <springfox.version>2.9.2</springfox.version>
+        <springfox.version>2.10.0</springfox.version>
     </properties>
 
     <!-- Add typical dependencies for a web application -->
